@@ -1,0 +1,22 @@
+Essentially this program functions by locating the top left hand corner of the MCQ sheet. 
+
+The program then cuts out each block of answers with the knowledge that the first block is a 
+certain distance from the top left corner of the page. 
+
+Once the first block of answers has been isolated, the program traverses through each row 
+of this block, and template matches the row against a set of templates (each representing
+a specific possible answer; A, B, C, D, E, Empty Answer, and Invalid Input).
+
+Once the first block of answers has been evaluated, the program moves the Region of Interest
+down +-300 pixels to determine the starting point of the second block of answers, and repeats 
+the process mentioned above.
+
+The program then isolates the next column of answer blocks by moving the ROI back in line with
+the first block, and across by +-500 pixels. And repeats the steps mentioned above for the
+remaining six answer blocks. 
+
+Some error checking was also included to recognize whether the particular answer sheet contained
+valid answers.
+
+Importantly, after each answer had been evaluated, the results were recorded in a simple .csv file
+to indicate the answers of the particular MCQ.
